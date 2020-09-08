@@ -1,39 +1,39 @@
 {
   "version": 1,
   "projects": {
-    "techprecedence": {
+    "prioritisation": {
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
       },
-      "root": "apps/techprecedence",
-      "sourceRoot": "apps/techprecedence/src",
+      "root": "apps/prioritisation",
+      "sourceRoot": "apps/prioritisation/src",
       "prefix": "giventech-apps",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/techprecedence",
-            "index": "apps/techprecedence/src/index.html",
-            "main": "apps/techprecedence/src/main.ts",
-            "polyfills": "apps/techprecedence/src/polyfills.ts",
-            "tsConfig": "apps/techprecedence/tsconfig.app.json",
+            "outputPath": "dist/apps/prioritisation",
+            "index": "apps/prioritisation/src/index.html",
+            "main": "apps/prioritisation/src/main.ts",
+            "polyfills": "apps/prioritisation/src/polyfills.ts",
+            "tsConfig": "apps/prioritisation/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/techprecedence/src/favicon.ico",
-              "apps/techprecedence/src/assets"
+              "apps/prioritisation/src/favicon.ico",
+              "apps/prioritisation/src/assets"
             ],
-            "styles": ["apps/techprecedence/src/styles.scss"],
+            "styles": ["apps/prioritisation/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/techprecedence/src/environments/environment.ts",
-                  "with": "apps/techprecedence/src/environments/environment.prod.ts"
+                  "replace": "apps/prioritisation/src/environments/environment.ts",
+                  "with": "apps/prioritisation/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -62,64 +62,64 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "techprecedence:build"
+            "browserTarget": "prioritisation:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "techprecedence:build:production"
+              "browserTarget": "prioritisation:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "techprecedence:build"
+            "browserTarget": "prioritisation:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/techprecedence/tsconfig.app.json",
-              "apps/techprecedence/tsconfig.spec.json"
+              "apps/prioritisation/tsconfig.app.json",
+              "apps/prioritisation/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/techprecedence/**/*"]
+            "exclude": ["**/node_modules/**", "!apps/prioritisation/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/techprecedence/jest.config.js",
-            "tsConfig": "apps/techprecedence/tsconfig.spec.json",
+            "jestConfig": "apps/prioritisation/jest.config.js",
+            "tsConfig": "apps/prioritisation/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "apps/techprecedence/src/test-setup.ts"
+            "setupFile": "apps/prioritisation/src/test-setup.ts"
           }
         }
       }
     },
-    "techprecedence-e2e": {
-      "root": "apps/techprecedence-e2e",
-      "sourceRoot": "apps/techprecedence-e2e/src",
+    "prioritisation-e2e": {
+      "root": "apps/prioritisation-e2e",
+      "sourceRoot": "apps/prioritisation-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/techprecedence-e2e/cypress.json",
-            "tsConfig": "apps/techprecedence-e2e/tsconfig.e2e.json",
-            "devServerTarget": "techprecedence:serve"
+            "cypressConfig": "apps/prioritisation-e2e/cypress.json",
+            "tsConfig": "apps/prioritisation-e2e/tsconfig.e2e.json",
+            "devServerTarget": "prioritisation:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "techprecedence:serve:production"
+              "devServerTarget": "prioritisation:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/techprecedence-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/techprecedence-e2e/**/*"]
+            "tsConfig": ["apps/prioritisation-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/prioritisation-e2e/**/*"]
           }
         }
       }
@@ -147,6 +147,41 @@
             "tsConfig": "libs/shared/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/shared/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "prioritisation-data-access": {
+      "projectType": "library",
+      "root": "libs/prioritisation/data-access",
+      "sourceRoot": "libs/prioritisation/data-access/src",
+      "prefix": "giventech-apps",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/prioritisation/data-access/tsconfig.lib.json",
+              "libs/prioritisation/data-access/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/prioritisation/data-access/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/prioritisation/data-access/jest.config.js",
+            "tsConfig": "libs/prioritisation/data-access/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/prioritisation/data-access/src/test-setup.ts"
           }
         }
       },
@@ -203,5 +238,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "techprecedence"
+  "defaultProject": "prioritisation"
 }

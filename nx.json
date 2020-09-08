@@ -25,14 +25,17 @@
     }
   },
   "projects": {
-    "techprecedence": {
+    "prioritisation": {
       "tags": []
     },
-    "techprecedence-e2e": {
+    "prioritisation-e2e": {
       "tags": [],
-      "implicitDependencies": ["techprecedence"]
+      "implicitDependencies": ["prioritisation"]
     },
     "shared": {
+      "tags": []
+    },
+    "prioritisation-data-access": {
       "tags": []
     }
   }
