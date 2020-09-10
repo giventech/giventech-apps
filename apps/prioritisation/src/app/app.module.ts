@@ -8,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'items',
-    loadChildren: () => import('@giventech-apps/prioritisation/data-access').then(m => m.PrioritisationDataAccessModule)
+    loadChildren: () => import('@giventech-apps/prioritisation/manage').then(m => m.PrioritisationManageModule)
   },
   {
     path: 'login',
