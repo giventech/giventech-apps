@@ -1,11 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
+import { RouterModule, Routes } from '@angular/router';
+
+
+
+const routes: Routes = [
+  {
+    path: 'items',
+    loadChildren: () => import('@giventech-apps/prioritisation/data-access').then(m => m.PrioritisationDataAccessModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('@giventech-apps/shared/auth').then(m => m.SharedAuthModule
+    )
+  },
+];
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes)
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })

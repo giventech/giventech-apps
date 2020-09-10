@@ -37,6 +37,12 @@
     },
     "prioritisation-data-access": {
       "tags": []
+    },
+    "shared-auth": {
+      "tags": []
+    },
+    "prioritisation-manage": {
+      "tags": []
     }
   }
 }

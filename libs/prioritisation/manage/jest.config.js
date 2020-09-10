@@ -1,6 +1,6 @@
 module.exports = {
-  name: 'shared',
-  preset: '../../jest.config.js',
+  name: 'prioritisation-manage',
+  preset: '../../../jest.config.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -12,7 +12,7 @@ module.exports = {
       ],
     },
   },
-  coverageDirectory: '../../coverage/libs/shared',
+  coverageDirectory: '../../../coverage/libs/prioritisation/manage',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
