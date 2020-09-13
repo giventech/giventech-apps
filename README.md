@@ -86,13 +86,18 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
 
 ## ☁ Nx Cloud
+## Chapter 1: Clean Code: Using Component + Presentational, Module, Libraries, 
 
-### Computation Memoization in the Cloud
+### The Below is usually represent the horizontal layers in  front end application
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+Business logic	Application-specific logic, domain logic, validation rules
+Persistence	WebStorage, IndexedDB, WebSQL, HTTP, WebSocket, GraphQL, Firebase, Meteor
+Messaging	WebRTC, WebSocket, Push API, Server-Sent Events
+I/O	Web Bluetooth, WebUSB, NFC, camera, microphone, proximity sensor, ambient light sensor
+Presentation	DOM manipulation, event listeners, formatting
+User interaction	UI behaviour, form validation
+State management	Application state management, application-specific events
 
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
 
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
-Visit [Nx Cloud](https://nx.app/) to learn more.
+
