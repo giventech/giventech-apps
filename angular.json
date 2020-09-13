@@ -10,7 +10,7 @@
       },
       "root": "apps/prioritisation",
       "sourceRoot": "apps/prioritisation/src",
-      "prefix": "giventech-apps",
+      "prefix": "gnt",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -128,7 +128,7 @@
       "projectType": "library",
       "root": "libs/shared",
       "sourceRoot": "libs/shared/src",
-      "prefix": "giventech-apps",
+      "prefix": "gnt",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -160,7 +160,7 @@
       "projectType": "library",
       "root": "libs/prioritisation/data-access",
       "sourceRoot": "libs/prioritisation/data-access/src",
-      "prefix": "giventech-apps",
+      "prefix": "gnt",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -195,7 +195,7 @@
       "projectType": "library",
       "root": "libs/shared/auth",
       "sourceRoot": "libs/shared/auth/src",
-      "prefix": "giventech-apps",
+      "prefix": "gnt",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -227,7 +227,7 @@
       "projectType": "library",
       "root": "libs/prioritisation/manage",
       "sourceRoot": "libs/prioritisation/manage/src",
-      "prefix": "giventech-apps",
+      "prefix": "gnt",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",

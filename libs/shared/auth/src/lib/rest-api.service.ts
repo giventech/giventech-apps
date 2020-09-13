@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 
 //TODO Consider making the RestAPI service a generic one for secure and non-secure calls
@@ -14,9 +15,12 @@ export class RestApiService {
 
   //Todo make this an environment variable
   private readonly  ENDPOINT;
+  private searchParam:string;
   // https://github.com/nrwl/nx/issues/208
-  constructor(private http: HttpClient) {
-    this.ENDPOINT = 'http://localhost:4200/';
+  constructor(private http: HttpClient,
+              private activatedRoute: ActivatedRoute
+              ) {
+    this.ENDPOINT = 'http://localhost:8080/api/';
   }
 
   /**
@@ -32,11 +36,22 @@ export class RestApiService {
    * @param name
    */
   readHelloWorld(name:string): Observable<any> {
-     this.http.get(this.ENDPOINT+'hello/'+name).subscribe(
-       (response) => {
-          name = ''+response;
-       }
-     )
-    return of(name);
+
+    //TODO  Question: Is this possible to pass a route to a Service
+    //TODO  Can we get a reference to the Activated Route from a service
+    /** Yes you can, it is dependency injection so the activated route is available all throughout the application
+     *  However this is is not relevant to making
+     */
+
+    //https://www.techiediaries.com/pass-parameters-angular-10-service-inject/
+    let params: URLSearchParams =  new URLSearchParams();
+    return  this.http.get(this.ENDPOINT+'hello?name=fabrice',{...this.commonOptions()
+
+    });
   }
+
+
+
+
+
 }

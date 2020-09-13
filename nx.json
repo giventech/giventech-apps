@@ -1,5 +1,5 @@
 {
-  "npmScope": "giventech-apps",
+  "npmScope": "gnt",
   "affected": {
     "defaultBase": "master"
   },

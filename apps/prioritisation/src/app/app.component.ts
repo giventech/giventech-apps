@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'giventech-apps-root',
+  selector: 'gnt-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

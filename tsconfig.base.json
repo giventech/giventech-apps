@@ -16,12 +16,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@giventech-apps/shared": ["libs/shared/src/index.ts"],
-      "@giventech-apps/prioritisation/data-access": [
+      "@gnt/shared": ["libs/shared/src/index.ts"],
+      "@gnt/prioritisation/data-access": [
         "libs/prioritisation/data-access/src/index.ts"
       ],
-      "@giventech-apps/shared/auth": ["libs/shared/auth/src/index.ts"],
-      "@giventech-apps/prioritisation/manage": [
+      "@gnt/shared/auth": ["libs/shared/auth/src/index.ts"],
+      "@gnt/prioritisation/manage": [
         "libs/prioritisation/manage/src/index.ts"
       ]
     }
