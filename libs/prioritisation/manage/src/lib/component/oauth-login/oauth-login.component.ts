@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { UserLogin } from '../../model/UserLogin';
 
 @Component({
   selector: 'gnt-oauth-login',

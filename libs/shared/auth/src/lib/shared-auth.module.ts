@@ -9,6 +9,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule],
+  exports:[
+    ReactiveFormsModule,
+  ],
   providers: [RestApiService]
 })
 export class SharedAuthModule {}

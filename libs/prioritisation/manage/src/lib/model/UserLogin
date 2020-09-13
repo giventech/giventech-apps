@@ -1,0 +1,12 @@
+export interface UserLogin {
+  username:string;
+  //TODO this needs to be encrypted
+  password:string;
+
+}
+
+export class OauthUserLogin implements UserLogin {
+  password: string;
+  username: string;
+
+}
