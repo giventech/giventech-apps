@@ -1,7 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { RestApiService } from '../../../../../../shared/auth/src/lib/rest-api.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { switchMap } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+
+import { RestApiService } from '@gnt/shared/auth';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 
 @Component({
@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
 
   ) {
     this.loginFormGroup = this.loginFormBuilder.group({
-      userNameControl: new FormControl ('',null),
-      passwordControl: new FormControl( '', null)
+      username: new FormControl ('',null),
+      password: new FormControl( '', null)
     });
 
     //ADD Method populateData();
@@ -50,9 +50,12 @@ export class LoginComponent implements OnInit {
   }
 
   authenticate(): void  {
-    this.loggedIn =  this.restApiService.readHelloWorld('fabrice').pipe(
-      switchMap(value => !!value ? of(true): of(false))
-    );
+
+    const loginData  = this.loginFormGroup.value;
+    this.restApiService.obtainAccessToken(loginData)
+    // this.loggedIn =  this.restApiService.readHelloWorld('fabrice').pipe(
+    //   switchMap(value => !!value ? of(true): of(false))
+    // );
   }
 
   populateData() {

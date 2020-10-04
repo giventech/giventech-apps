@@ -1,0 +1,9 @@
+@startuml
+Browser -> giventechapps: /login
+giventechapps-> AppModule: /login
+AppModule -> AppModule : RouterModule.forRoot(routes)
+AppModule -> AppModule : "import('@gnt/prioritisation/manage').then(m => m.PrioritisationManageModule"
+PrioritisationManageModule -> PrioritisationManageModule : LoginComponent
+PrioritisationManageModule ->Browser : Login Form (UI)
+Browser -> LoginComponent : authenticate
+@enduml
