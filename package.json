@@ -27,6 +27,13 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help"
   },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 100,
+    "semi": true,
+    "bracketSpacing": true,
+    "arrowParens": "always"
+  },
   "private": true,
   "dependencies": {
     "@nrwl/angular": "10.1.0",

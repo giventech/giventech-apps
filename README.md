@@ -86,10 +86,16 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
 
 ## ☁ Nx Cloud
+
 ## Chapter 1: Clean Code: Using Component + Presentational, Module, Libraries, 
 
 ### The Below is usually represent the horizontal layers in  front end application
 
+## Clean Code 
+In order to achieve clean clode below principle are applied
+Separation of concern using angular eco-system features (component, module, library)
+Dependency management and Injection (e.g. Injection of service)
+Enforcing module boundaries 
 Business logic	Application-specific logic, domain logic, validation rules
 Persistence	WebStorage, IndexedDB, WebSQL, HTTP, WebSocket, GraphQL, Firebase, Meteor
 Messaging	WebRTC, WebSocket, Push API, Server-Sent Events
