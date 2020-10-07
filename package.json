@@ -28,11 +28,16 @@
     "help": "nx help"
   },
   "prettier": {
-    "singleQuote": true,
-    "printWidth": 100,
-    "semi": true,
-    "bracketSpacing": true,
-    "arrowParens": "always"
+      "printWidth": 80,
+      "tabWidth": 2,
+      "useTabs": true,
+      "semi": true,
+      "singleQuote": true,
+      "trailingComma": "all",
+      "bracketSpacing": true,
+      "arrowParens": "avoid",
+      "jsxSingleQuote": true,
+      "endOfLine": "lf"
   },
   "private": true,
   "dependencies": {
