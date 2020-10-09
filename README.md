@@ -87,23 +87,20 @@ Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
 
 ## ☁ Nx Cloud
 
-## Chapter 1: Clean Code: Using Component + Presentational, Module, Libraries, 
+## Chapter 1: Clean Code: Using Component + Presentational, Module, Libraries,
 
-### The Below is usually represent the horizontal layers in  front end application
+### The Below is usually represent the horizontal layers in front end application
 
-## Clean Code 
+## Clean Code
+
 In order to achieve clean clode below principle are applied
 Separation of concern using angular eco-system features (component, module, library)
 Dependency management and Injection (e.g. Injection of service)
-Enforcing module boundaries 
-Business logic	Application-specific logic, domain logic, validation rules
-Persistence	WebStorage, IndexedDB, WebSQL, HTTP, WebSocket, GraphQL, Firebase, Meteor
-Messaging	WebRTC, WebSocket, Push API, Server-Sent Events
-I/O	Web Bluetooth, WebUSB, NFC, camera, microphone, proximity sensor, ambient light sensor
-Presentation	DOM manipulation, event listeners, formatting
-User interaction	UI behaviour, form validation
-State management	Application state management, application-specific events
-
-
-
-
+Enforcing module boundaries
+Business logic Application-specific logic, domain logic, validation rules
+Persistence WebStorage, IndexedDB, WebSQL, HTTP, WebSocket, GraphQL, Firebase, Meteor
+Messaging WebRTC, WebSocket, Push API, Server-Sent Events
+I/O Web Bluetooth, WebUSB, NFC, camera, microphone, proximity sensor, ambient light sensor
+Presentation DOM manipulation, event listeners, formatting
+User interaction UI behaviour, form validation
+State management Application state management, application-specific events

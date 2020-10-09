@@ -10,12 +10,12 @@ import { RestApiService } from '../../../../shared/auth/src/lib/rest-api.service
 import { OauthLoginComponent } from './component/oauth-login/oauth-login.component';
 
 @NgModule({
-  imports: [CommonModule, SharedAuthModule,
-  RouterModule.forChild([
-    {path: '' , component: LoginComponent},
-  ])
-  ],
-  declarations: [LoginComponent, OauthLoginComponent],
-  providers:[RestApiService]
+	imports: [
+		CommonModule,
+		SharedAuthModule,
+		RouterModule.forChild([{ path: '', component: LoginComponent }]),
+	],
+	declarations: [LoginComponent, OauthLoginComponent],
+	providers: [RestApiService],
 })
 export class PrioritisationManageModule {}

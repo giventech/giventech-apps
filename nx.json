@@ -1,48 +1,48 @@
 {
-  "npmScope": "gnt",
-  "affected": {
-    "defaultBase": "master"
-  },
-  "implicitDependencies": {
-    "angular.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
-    "tsconfig.base.json": "*",
-    "tslint.json": "*",
-    "nx.json": "*"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/nx-cloud",
-      "options": {
-        "accessToken": "Njg3YTdkYmUtODZlZC00OGZhLTlhY2YtYzI3ZjAzNjE1NzMzfHJlYWQtd3JpdGU=",
-        "cacheableOperations": ["build", "test", "lint", "e2e"],
-        "canTrackAnalytics": false,
-        "showUsageWarnings": true
-      }
-    }
-  },
-  "projects": {
-    "prioritisation": {
-      "tags": []
-    },
-    "prioritisation-e2e": {
-      "tags": [],
-      "implicitDependencies": ["prioritisation"]
-    },
-    "shared": {
-      "tags": []
-    },
-    "prioritisation-data-access": {
-      "tags": []
-    },
-    "shared-auth": {
-      "tags": []
-    },
-    "prioritisation-manage": {
-      "tags": []
-    }
-  }
+	"npmScope": "gnt",
+	"affected": {
+		"defaultBase": "master"
+	},
+	"implicitDependencies": {
+		"angular.json": "*",
+		"package.json": {
+			"dependencies": "*",
+			"devDependencies": "*"
+		},
+		"tsconfig.base.json": "*",
+		"tslint.json": "*",
+		"nx.json": "*"
+	},
+	"tasksRunnerOptions": {
+		"default": {
+			"runner": "@nrwl/nx-cloud",
+			"options": {
+				"accessToken": "Njg3YTdkYmUtODZlZC00OGZhLTlhY2YtYzI3ZjAzNjE1NzMzfHJlYWQtd3JpdGU=",
+				"cacheableOperations": ["build", "test", "lint", "e2e"],
+				"canTrackAnalytics": false,
+				"showUsageWarnings": true
+			}
+		}
+	},
+	"projects": {
+		"prioritisation": {
+			"tags": []
+		},
+		"prioritisation-e2e": {
+			"tags": [],
+			"implicitDependencies": ["prioritisation"]
+		},
+		"shared": {
+			"tags": []
+		},
+		"prioritisation-data-access": {
+			"tags": []
+		},
+		"shared-auth": {
+			"tags": []
+		},
+		"prioritisation-manage": {
+			"tags": []
+		}
+	}
 }
