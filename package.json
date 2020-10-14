@@ -27,11 +27,25 @@
 		"dep-graph": "nx dep-graph",
 		"help": "nx help"
 	},
-  "husky": {
-    "hooks": {
-    "commit-msg": "commitlint --config commitlint.config.js -E HUSKY_GIT_PARAMS",
-    "pre-commit": "lint-staged"
-    }
+	"husky": {
+		"hooks": {
+			"commit-msg": "commitlint --config commitlint.config.js -E HUSKY_GIT_PARAMS",
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"{apps,libs}/**/*.{ts,json,md,scss,html}": [
+			"prettier --write",
+			"git add"
+		],
+		"*.ts": [
+			"tslint --fix",
+			"git add"
+		],
+		"*.scss": [
+			"stylelint --fix",
+			"git add"
+		]
 	},
 	"prettier": {
 		"printWidth": 80,
@@ -65,6 +79,8 @@
 		"@angular/cli": "~10.0.0",
 		"@angular/compiler-cli": "^10.0.0",
 		"@angular/language-service": "^10.0.0",
+		"@commitlint/cli": "^11.0.0",
+		"@commitlint/config-conventional": "^11.0.0",
 		"@nrwl/cypress": "10.1.0",
 		"@nrwl/jest": "10.1.0",
 		"@nrwl/nx-cloud": "latest",
