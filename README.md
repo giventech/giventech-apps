@@ -105,5 +105,5 @@ User interaction	UI behaviour, form validation
 State management	Application state management, application-specific events
 
 
-
+https://www.apollographql.com/blog/apollo-client-client-side-architecture-basics/
 
