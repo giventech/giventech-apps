@@ -89,6 +89,14 @@ Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
 
 ## Chapter 1: Clean Code: Using Component + Presentational, Module, Libraries, 
 
+Code is organised as below
+
+- Domain(folder): prioritisation (a grouping folders)
+- feature(lib): manage ( could have been called feature managed)
+- shell(lib): or entry point s multiple domains, (It uses smart components but makes an abstraction from data implementation type using data-access
+
+
+
 ### The Below is usually represent the horizontal layers in  front end application
 
 ## Clean Code 
@@ -105,5 +113,8 @@ User interaction	UI behaviour, form validation
 State management	Application state management, application-specific events
 
 
+## References
+
+https://medium.com/showpad-engineering/how-to-organize-and-name-applications-and-libraries-in-an-nx-monorepo-for-immediate-team-wide-9876510dbe28
 https://www.apollographql.com/blog/apollo-client-client-side-architecture-basics/
 

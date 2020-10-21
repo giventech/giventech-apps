@@ -17,13 +17,17 @@
     "baseUrl": ".",
     "paths": {
       "@gnt/shared": ["libs/shared/src/index.ts"],
-      "@gnt/prioritisation/data-access": [
-        "libs/prioritisation/data-access/src/index.ts"
-      ],
+      "@gnt/prioritisation/data-access": ["libs/prioritisation/data-access/src/index.ts"],
       "@gnt/shared/auth": ["libs/shared/auth/src/index.ts"],
-      "@gnt/prioritisation/manage": [
-        "libs/prioritisation/manage/src/index.ts"
-      ]
+      "@gnt/prioritisation/manage": ["libs/prioritisation/manage/src/index.ts"],
+      "@gnt/prioritisation/shell": ["libs/prioritisation/shell/src/index.ts"],
+      "@gnt/prioritisation/feat-priorities-list": [
+        "libs/prioritisation/feat-priorities-list/src/index.ts"
+      ],
+      "@gnt/prioritisation/list/feature-shell": [
+        "libs/prioritisation/list/feature-shell/src/index.ts"
+      ],
+      "@gnt/prioritisation/list/data-access": ["libs/prioritisation/list/data-access/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -21,10 +21,7 @@
             "polyfills": "apps/prioritisation/src/polyfills.ts",
             "tsConfig": "apps/prioritisation/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/prioritisation/src/favicon.ico",
-              "apps/prioritisation/src/assets"
-            ],
+            "assets": ["apps/prioritisation/src/favicon.ico", "apps/prioritisation/src/assets"],
             "styles": ["apps/prioritisation/src/styles.scss"],
             "scripts": []
           },
@@ -133,10 +130,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/shared/tsconfig.lib.json",
-              "libs/shared/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/shared/tsconfig.lib.json", "libs/shared/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/shared/**/*"]
           }
         },
@@ -169,10 +163,7 @@
               "libs/prioritisation/data-access/tsconfig.lib.json",
               "libs/prioritisation/data-access/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/prioritisation/data-access/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/prioritisation/data-access/**/*"]
           }
         },
         "test": {
@@ -236,10 +227,7 @@
               "libs/prioritisation/manage/tsconfig.lib.json",
               "libs/prioritisation/manage/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/prioritisation/manage/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/prioritisation/manage/**/*"]
           }
         },
         "test": {
@@ -249,6 +237,134 @@
             "tsConfig": "libs/prioritisation/manage/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/prioritisation/manage/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "prioritisation-shell": {
+      "projectType": "library",
+      "root": "libs/prioritisation/shell",
+      "sourceRoot": "libs/prioritisation/shell/src",
+      "prefix": "gnt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/prioritisation/shell/tsconfig.lib.json",
+              "libs/prioritisation/shell/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/prioritisation/shell/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/prioritisation/shell/jest.config.js",
+            "tsConfig": "libs/prioritisation/shell/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/prioritisation/shell/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "prioritisation-feat-priorities-list": {
+      "projectType": "library",
+      "root": "libs/prioritisation/feat-priorities-list",
+      "sourceRoot": "libs/prioritisation/feat-priorities-list/src",
+      "prefix": "gnt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/prioritisation/feat-priorities-list/tsconfig.lib.json",
+              "libs/prioritisation/feat-priorities-list/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/prioritisation/feat-priorities-list/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/prioritisation/feat-priorities-list/jest.config.js",
+            "tsConfig": "libs/prioritisation/feat-priorities-list/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/prioritisation/feat-priorities-list/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "prioritisation-list-feature-shell": {
+      "projectType": "library",
+      "root": "libs/prioritisation/list/feature-shell",
+      "sourceRoot": "libs/prioritisation/list/feature-shell/src",
+      "prefix": "gnt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/prioritisation/list/feature-shell/tsconfig.lib.json",
+              "libs/prioritisation/list/feature-shell/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/prioritisation/list/feature-shell/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/prioritisation/list/feature-shell/jest.config.js",
+            "tsConfig": "libs/prioritisation/list/feature-shell/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/prioritisation/list/feature-shell/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "prioritisation-list-data-access": {
+      "projectType": "library",
+      "root": "libs/prioritisation/list/data-access",
+      "sourceRoot": "libs/prioritisation/list/data-access/src",
+      "prefix": "gnt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/prioritisation/list/data-access/tsconfig.lib.json",
+              "libs/prioritisation/list/data-access/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/prioritisation/list/data-access/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/prioritisation/list/data-access/jest.config.js",
+            "tsConfig": "libs/prioritisation/list/data-access/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/prioritisation/list/data-access/src/test-setup.ts"
           }
         }
       },

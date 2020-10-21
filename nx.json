@@ -43,6 +43,18 @@
     },
     "prioritisation-manage": {
       "tags": []
+    },
+    "prioritisation-shell": {
+      "tags": []
+    },
+    "prioritisation-feat-priorities-list": {
+      "tags": []
+    },
+    "prioritisation-list-feature-shell": {
+      "tags": []
+    },
+    "prioritisation-list-data-access": {
+      "tags": []
     }
   }
 }
