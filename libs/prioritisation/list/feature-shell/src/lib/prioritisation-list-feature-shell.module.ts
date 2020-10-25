@@ -4,13 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { PrioritisationListDataAccessModule } from '@gnt/prioritisation/list/data-access';
 import { ListHomeComponent } from './components/list-home/list-home.component';
+import { ListHomeSmartComponent } from './containers/list-home-smart/list-home-smart.component';
 
 
 //TODO : Consider what is the impact of ModuleWithProvider in the instantiation of services
 //https://angular.io/guide/migration-module-with-providers
 
 @NgModule({
-  declarations: [],
+  declarations: [ListHomeSmartComponent],
   imports: [
     PrioritisationListDataAccessModule, // Encapsulate access to state management or Graphql
     // For child indicates a Lazy loaded route
