@@ -1,21 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './containers/login/login.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { RestApiService, SharedAuthModule } from '@gnt/shared/auth';
+import { OauthLoginComponent } from './component/oauth-login/oauth-login.component';
 
 //TODO Question: How do I reduce the below import in a clean way
-
-import { SharedAuthModule } from '@gnt/shared/auth';
-import { RestApiService } from '../../../../shared/auth/src/lib/rest-api.service';
-import { OauthLoginComponent } from './component/oauth-login/oauth-login.component';
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () => import('@gnt/prioritisation/list/feature-shell').then(m => m.PrioritisationListFeatureShellModule)
+  },
+  // {
+  //   path: 'create',
+  //   loadChildren: () => import('@gnt/prioritisation/list/feature-shell').then(m => m.PrioritisationListFeatureShellModule)
+  // }
+];
 
 @NgModule({
   imports: [CommonModule, SharedAuthModule,
-  RouterModule.forChild([
-    {path: '' , component: LoginComponent},
-  ])
+  RouterModule.forChild(routes)
   ],
-  declarations: [LoginComponent, OauthLoginComponent],
+  declarations: [OauthLoginComponent],
   providers:[RestApiService]
 })
 export class PrioritisationManageModule {}
+
+

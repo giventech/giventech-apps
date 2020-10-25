@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 
-
-
 const routes: Routes = [
+
+  // This is prioritisation app companion library
   {
-    path: 'login',
+    path: 'manage',
     loadChildren: () => import('@gnt/prioritisation/manage').then(m => m.PrioritisationManageModule)
   }
 ];

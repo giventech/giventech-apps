@@ -91,9 +91,18 @@ Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
 
 Code is organised as below
 
+- Application(folder): prioritisation (app) compose one library PriorityManage
+- Main manage library ( maybe to rename  prioritisation)
+        - Route to the relevant application shells (SandBoxes or facade) 
+        - calls directly shared libraries ( such as authentication library)
+        - Most Likely will use shared UI
+- Shell(lib):         
+  
+
 - Domain(folder): prioritisation (a grouping folders)
-- feature(lib): manage ( could have been called feature managed)
-- shell(lib): or entry point s multiple domains, (It uses smart components but makes an abstraction from data implementation type using data-access
+
+- feature: 
+
 
 
 
