@@ -7,19 +7,15 @@ import { ListHomeSmartComponent } from './containers/list-home-smart/list-home-s
 import { CommonModule } from '@angular/common';
 
 
-//TODO : Consider what is the impact of ModuleWithProvider in the instantiation of services
-//https://angular.io/guide/migration-module-with-providers
-
 @NgModule({
   declarations: [ListHomeSmartComponent, ListHomeComponent],
   imports: [
     PrioritisationListDataAccessModule,  // Encapsulate access to state management or Graphql
     RouterModule.forChild([       // forChild enables lazy loading of the route.
-      { path: '', pathMatch: 'full', component: ListHomeComponent }
+      { path: '', pathMatch: 'full', component: ListHomeSmartComponent }
     ]),
     CommonModule
   ],
   providers: []
-  // bootstrap: [], // No need to bootstrap
 })
 export class PrioritisationListFeatureShellModule {}
