@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'gnt-list-home',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-home.component.scss']
 })
 export class ListHomeComponent implements OnInit {
+
+  @Input() priorities: {businessValue: string, criticality: string, WSJF: number}[];
 
   constructor() { }
 
