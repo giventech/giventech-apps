@@ -91,7 +91,8 @@ Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
 
 Code is organised as below
 
-- Application(folder): prioritisation (app) compose one library PriorityManage
+- Application folder: prioritisation (app) composes one library PriorityManage
+- List List library: the components to read prioritised tasks by weight
 - Main manage library ( maybe to rename  prioritisation)
         - Route to the relevant application shells (SandBoxes or facade) 
         - calls directly shared libraries ( such as authentication library)
