@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable} from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, map } from 'rxjs/operators';
 
 // TODO Great documentation
 
@@ -50,7 +49,7 @@ export class RestApiService {
       .set("grant_type","password")
       .set("client_id","my-client")
       .set("client_secret","my-secret")
-      .set("scope","read write trust");;
+      .set("scope","read write trust");
 
 
     const authorisationHeader =

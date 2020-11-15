@@ -5,6 +5,7 @@ import { PrioritisationListDataAccessModule } from '@gnt/prioritisation/list/dat
 import { ListHomeComponent } from './components/list-home/list-home.component';
 import { ListHomeSmartComponent } from './containers/list-home-smart/list-home-smart.component';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from '../../../../manage/src/lib/containers/login/login.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     PrioritisationListDataAccessModule,  // Encapsulate access to state management or Graphql
     RouterModule.forChild([       // forChild enables lazy loading of the route.
-      { path: '', pathMatch: 'full', component: ListHomeSmartComponent }
+      { path: '', pathMatch: 'full', component: ListHomeSmartComponent},
+      { path: 'login', component: LoginComponent }
     ]),
     CommonModule
   ],
