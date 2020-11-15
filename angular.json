@@ -1,309 +1,425 @@
 {
-	"version": 1,
-	"projects": {
-		"prioritisation": {
-			"projectType": "application",
-			"schematics": {
-				"@nrwl/angular:component": {
-					"style": "scss"
-				}
-			},
-			"root": "apps/prioritisation",
-			"sourceRoot": "apps/prioritisation/src",
-			"prefix": "gnt",
-			"architect": {
-				"build": {
-					"builder": "@angular-devkit/build-angular:browser",
-					"options": {
-						"outputPath": "dist/apps/prioritisation",
-						"index": "apps/prioritisation/src/index.html",
-						"main": "apps/prioritisation/src/main.ts",
-						"polyfills": "apps/prioritisation/src/polyfills.ts",
-						"tsConfig": "apps/prioritisation/tsconfig.app.json",
-						"aot": true,
-						"assets": [
-							"apps/prioritisation/src/favicon.ico",
-							"apps/prioritisation/src/assets"
-						],
-						"styles": ["apps/prioritisation/src/styles.scss"],
-						"scripts": []
-					},
-					"configurations": {
-						"production": {
-							"fileReplacements": [
-								{
-									"replace": "apps/prioritisation/src/environments/environment.ts",
-									"with": "apps/prioritisation/src/environments/environment.prod.ts"
-								}
-							],
-							"optimization": true,
-							"outputHashing": "all",
-							"sourceMap": false,
-							"extractCss": true,
-							"namedChunks": false,
-							"extractLicenses": true,
-							"vendorChunk": false,
-							"buildOptimizer": true,
-							"budgets": [
-								{
-									"type": "initial",
-									"maximumWarning": "2mb",
-									"maximumError": "5mb"
-								},
-								{
-									"type": "anyComponentStyle",
-									"maximumWarning": "6kb",
-									"maximumError": "10kb"
-								}
-							]
-						}
-					}
-				},
-				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
-					"options": {
-						"browserTarget": "prioritisation:build"
-					},
-					"configurations": {
-						"production": {
-							"browserTarget": "prioritisation:build:production"
-						}
-					}
-				},
-				"extract-i18n": {
-					"builder": "@angular-devkit/build-angular:extract-i18n",
-					"options": {
-						"browserTarget": "prioritisation:build"
-					}
-				},
-				"lint": {
-					"builder": "@angular-devkit/build-angular:tslint",
-					"options": {
-						"tsConfig": [
-							"apps/prioritisation/tsconfig.app.json",
-							"apps/prioritisation/tsconfig.spec.json"
-						],
-						"exclude": ["**/node_modules/**", "!apps/prioritisation/**/*"]
-					}
-				},
-				"test": {
-					"builder": "@nrwl/jest:jest",
-					"options": {
-						"jestConfig": "apps/prioritisation/jest.config.js",
-						"tsConfig": "apps/prioritisation/tsconfig.spec.json",
-						"passWithNoTests": true,
-						"setupFile": "apps/prioritisation/src/test-setup.ts"
-					}
-				}
-			}
-		},
-		"prioritisation-e2e": {
-			"root": "apps/prioritisation-e2e",
-			"sourceRoot": "apps/prioritisation-e2e/src",
-			"projectType": "application",
-			"architect": {
-				"e2e": {
-					"builder": "@nrwl/cypress:cypress",
-					"options": {
-						"cypressConfig": "apps/prioritisation-e2e/cypress.json",
-						"tsConfig": "apps/prioritisation-e2e/tsconfig.e2e.json",
-						"devServerTarget": "prioritisation:serve"
-					},
-					"configurations": {
-						"production": {
-							"devServerTarget": "prioritisation:serve:production"
-						}
-					}
-				},
-				"lint": {
-					"builder": "@angular-devkit/build-angular:tslint",
-					"options": {
-						"tsConfig": ["apps/prioritisation-e2e/tsconfig.e2e.json"],
-						"exclude": ["**/node_modules/**", "!apps/prioritisation-e2e/**/*"]
-					}
-				}
-			}
-		},
-		"shared": {
-			"projectType": "library",
-			"root": "libs/shared",
-			"sourceRoot": "libs/shared/src",
-			"prefix": "gnt",
-			"architect": {
-				"lint": {
-					"builder": "@angular-devkit/build-angular:tslint",
-					"options": {
-						"tsConfig": [
-							"libs/shared/tsconfig.lib.json",
-							"libs/shared/tsconfig.spec.json"
-						],
-						"exclude": ["**/node_modules/**", "!libs/shared/**/*"]
-					}
-				},
-				"test": {
-					"builder": "@nrwl/jest:jest",
-					"options": {
-						"jestConfig": "libs/shared/jest.config.js",
-						"tsConfig": "libs/shared/tsconfig.spec.json",
-						"passWithNoTests": true,
-						"setupFile": "libs/shared/src/test-setup.ts"
-					}
-				}
-			},
-			"schematics": {
-				"@nrwl/angular:component": {
-					"style": "scss"
-				}
-			}
-		},
-		"prioritisation-data-access": {
-			"projectType": "library",
-			"root": "libs/prioritisation/data-access",
-			"sourceRoot": "libs/prioritisation/data-access/src",
-			"prefix": "gnt",
-			"architect": {
-				"lint": {
-					"builder": "@angular-devkit/build-angular:tslint",
-					"options": {
-						"tsConfig": [
-							"libs/prioritisation/data-access/tsconfig.lib.json",
-							"libs/prioritisation/data-access/tsconfig.spec.json"
-						],
-						"exclude": [
-							"**/node_modules/**",
-							"!libs/prioritisation/data-access/**/*"
-						]
-					}
-				},
-				"test": {
-					"builder": "@nrwl/jest:jest",
-					"options": {
-						"jestConfig": "libs/prioritisation/data-access/jest.config.js",
-						"tsConfig": "libs/prioritisation/data-access/tsconfig.spec.json",
-						"passWithNoTests": true,
-						"setupFile": "libs/prioritisation/data-access/src/test-setup.ts"
-					}
-				}
-			},
-			"schematics": {
-				"@nrwl/angular:component": {
-					"style": "scss"
-				}
-			}
-		},
-		"shared-auth": {
-			"projectType": "library",
-			"root": "libs/shared/auth",
-			"sourceRoot": "libs/shared/auth/src",
-			"prefix": "gnt",
-			"architect": {
-				"lint": {
-					"builder": "@angular-devkit/build-angular:tslint",
-					"options": {
-						"tsConfig": [
-							"libs/shared/auth/tsconfig.lib.json",
-							"libs/shared/auth/tsconfig.spec.json"
-						],
-						"exclude": ["**/node_modules/**", "!libs/shared/auth/**/*"]
-					}
-				},
-				"test": {
-					"builder": "@nrwl/jest:jest",
-					"options": {
-						"jestConfig": "libs/shared/auth/jest.config.js",
-						"tsConfig": "libs/shared/auth/tsconfig.spec.json",
-						"passWithNoTests": true,
-						"setupFile": "libs/shared/auth/src/test-setup.ts"
-					}
-				}
-			},
-			"schematics": {
-				"@nrwl/angular:component": {
-					"style": "scss"
-				}
-			}
-		},
-		"prioritisation-manage": {
-			"projectType": "library",
-			"root": "libs/prioritisation/manage",
-			"sourceRoot": "libs/prioritisation/manage/src",
-			"prefix": "gnt",
-			"architect": {
-				"lint": {
-					"builder": "@angular-devkit/build-angular:tslint",
-					"options": {
-						"tsConfig": [
-							"libs/prioritisation/manage/tsconfig.lib.json",
-							"libs/prioritisation/manage/tsconfig.spec.json"
-						],
-						"exclude": [
-							"**/node_modules/**",
-							"!libs/prioritisation/manage/**/*"
-						]
-					}
-				},
-				"test": {
-					"builder": "@nrwl/jest:jest",
-					"options": {
-						"jestConfig": "libs/prioritisation/manage/jest.config.js",
-						"tsConfig": "libs/prioritisation/manage/tsconfig.spec.json",
-						"passWithNoTests": true,
-						"setupFile": "libs/prioritisation/manage/src/test-setup.ts"
-					}
-				}
-			},
-			"schematics": {
-				"@nrwl/angular:component": {
-					"style": "scss"
-				}
-			}
-		}
-	},
-	"cli": {
-		"defaultCollection": "@nrwl/angular"
-	},
-	"schematics": {
-		"@nrwl/workspace": {
-			"library": {
-				"linter": "tslint"
-			}
-		},
-		"@nrwl/cypress": {
-			"cypress-project": {
-				"linter": "tslint"
-			}
-		},
-		"@nrwl/node": {
-			"application": {
-				"linter": "tslint"
-			},
-			"library": {
-				"linter": "tslint"
-			}
-		},
-		"@nrwl/nest": {
-			"application": {
-				"linter": "tslint"
-			},
-			"library": {
-				"linter": "tslint"
-			}
-		},
-		"@nrwl/express": {
-			"application": {
-				"linter": "tslint"
-			},
-			"library": {
-				"linter": "tslint"
-			}
-		},
-		"@nrwl/angular:application": {
-			"unitTestRunner": "jest",
-			"e2eTestRunner": "cypress"
-		},
-		"@nrwl/angular:library": {
-			"unitTestRunner": "jest"
-		}
-	},
-	"defaultProject": "prioritisation"
+  "version": 1,
+  "projects": {
+    "prioritisation": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/prioritisation",
+      "sourceRoot": "apps/prioritisation/src",
+      "prefix": "gnt",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/prioritisation",
+            "index": "apps/prioritisation/src/index.html",
+            "main": "apps/prioritisation/src/main.ts",
+            "polyfills": "apps/prioritisation/src/polyfills.ts",
+            "tsConfig": "apps/prioritisation/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/prioritisation/src/favicon.ico", "apps/prioritisation/src/assets"],
+            "styles": ["apps/prioritisation/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/prioritisation/src/environments/environment.ts",
+                  "with": "apps/prioritisation/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "prioritisation:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "prioritisation:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "prioritisation:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/prioritisation/tsconfig.app.json",
+              "apps/prioritisation/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/prioritisation/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/prioritisation/jest.config.js",
+            "tsConfig": "apps/prioritisation/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/prioritisation/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "prioritisation-e2e": {
+      "root": "apps/prioritisation-e2e",
+      "sourceRoot": "apps/prioritisation-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/prioritisation-e2e/cypress.json",
+            "tsConfig": "apps/prioritisation-e2e/tsconfig.e2e.json",
+            "devServerTarget": "prioritisation:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "prioritisation:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/prioritisation-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/prioritisation-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "shared": {
+      "projectType": "library",
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "prefix": "gnt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/shared/tsconfig.lib.json", "libs/shared/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/shared/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/jest.config.js",
+            "tsConfig": "libs/shared/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "prioritisation-data-access": {
+      "projectType": "library",
+      "root": "libs/prioritisation/data-access",
+      "sourceRoot": "libs/prioritisation/data-access/src",
+      "prefix": "gnt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/prioritisation/data-access/tsconfig.lib.json",
+              "libs/prioritisation/data-access/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/prioritisation/data-access/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/prioritisation/data-access/jest.config.js",
+            "tsConfig": "libs/prioritisation/data-access/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/prioritisation/data-access/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-auth": {
+      "projectType": "library",
+      "root": "libs/shared/auth",
+      "sourceRoot": "libs/shared/auth/src",
+      "prefix": "gnt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/auth/tsconfig.lib.json",
+              "libs/shared/auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/auth/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/auth/jest.config.js",
+            "tsConfig": "libs/shared/auth/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared/auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "prioritisation-manage": {
+      "projectType": "library",
+      "root": "libs/prioritisation/manage",
+      "sourceRoot": "libs/prioritisation/manage/src",
+      "prefix": "gnt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/prioritisation/manage/tsconfig.lib.json",
+              "libs/prioritisation/manage/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/prioritisation/manage/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/prioritisation/manage/jest.config.js",
+            "tsConfig": "libs/prioritisation/manage/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/prioritisation/manage/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "prioritisation-shell": {
+      "projectType": "library",
+      "root": "libs/prioritisation/shell",
+      "sourceRoot": "libs/prioritisation/shell/src",
+      "prefix": "gnt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/prioritisation/shell/tsconfig.lib.json",
+              "libs/prioritisation/shell/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/prioritisation/shell/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/prioritisation/shell/jest.config.js",
+            "tsConfig": "libs/prioritisation/shell/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/prioritisation/shell/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "prioritisation-feat-priorities-list": {
+      "projectType": "library",
+      "root": "libs/prioritisation/feat-priorities-list",
+      "sourceRoot": "libs/prioritisation/feat-priorities-list/src",
+      "prefix": "gnt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/prioritisation/feat-priorities-list/tsconfig.lib.json",
+              "libs/prioritisation/feat-priorities-list/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/prioritisation/feat-priorities-list/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/prioritisation/feat-priorities-list/jest.config.js",
+            "tsConfig": "libs/prioritisation/feat-priorities-list/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/prioritisation/feat-priorities-list/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "prioritisation-list-feature-shell": {
+      "projectType": "library",
+      "root": "libs/prioritisation/list/feature-shell",
+      "sourceRoot": "libs/prioritisation/list/feature-shell/src",
+      "prefix": "gnt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/prioritisation/list/feature-shell/tsconfig.lib.json",
+              "libs/prioritisation/list/feature-shell/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/prioritisation/list/feature-shell/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/prioritisation/list/feature-shell/jest.config.js",
+            "tsConfig": "libs/prioritisation/list/feature-shell/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/prioritisation/list/feature-shell/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "prioritisation-list-data-access": {
+      "projectType": "library",
+      "root": "libs/prioritisation/list/data-access",
+      "sourceRoot": "libs/prioritisation/list/data-access/src",
+      "prefix": "gnt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/prioritisation/list/data-access/tsconfig.lib.json",
+              "libs/prioritisation/list/data-access/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/prioritisation/list/data-access/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/prioritisation/list/data-access/jest.config.js",
+            "tsConfig": "libs/prioritisation/list/data-access/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/prioritisation/list/data-access/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "prioritisation"
 }

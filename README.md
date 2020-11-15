@@ -51,7 +51,7 @@ Run `ng g @nrwl/angular:lib my-lib` to generate a library.
 
 > You can also use any of the plugins above to generate libraries as well.
 
-Libraries are sharable across libraries and applications. They can be imported from `@giventech-apps/mylib`.
+Libraries are sharable across libraries and applications. They can be imported from `@gnt/mylib`.
 
 ## Development server
 
@@ -87,20 +87,44 @@ Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
 
 ## ☁ Nx Cloud
 
-## Chapter 1: Clean Code: Using Component + Presentational, Module, Libraries,
+## Chapter 1: Clean Code: Using Component + Presentational, Module, Libraries, 
 
-### The Below is usually represent the horizontal layers in front end application
+Code is organised as below
 
-## Clean Code
+- Application folder: prioritisation (app) composes one library PriorityManage
+- List List library: the components to read prioritised tasks by weight
+- Main manage library ( maybe to rename  prioritisation)
+        - Route to the relevant application shells (SandBoxes or facade) 
+        - calls directly shared libraries ( such as authentication library)
+        - Most Likely will use shared UI
+- Shell(lib):         
+  
 
+- Domain(folder): prioritisation (a grouping folders)
+
+- feature: 
+
+
+
+
+### The Below is usually represent the horizontal layers in  front end application
+
+## Clean Code 
 In order to achieve clean clode below principle are applied
 Separation of concern using angular eco-system features (component, module, library)
 Dependency management and Injection (e.g. Injection of service)
-Enforcing module boundaries
-Business logic Application-specific logic, domain logic, validation rules
-Persistence WebStorage, IndexedDB, WebSQL, HTTP, WebSocket, GraphQL, Firebase, Meteor
-Messaging WebRTC, WebSocket, Push API, Server-Sent Events
-I/O Web Bluetooth, WebUSB, NFC, camera, microphone, proximity sensor, ambient light sensor
-Presentation DOM manipulation, event listeners, formatting
-User interaction UI behaviour, form validation
-State management Application state management, application-specific events
+Enforcing module boundaries 
+Business logic	Application-specific logic, domain logic, validation rules
+Persistence	WebStorage, IndexedDB, WebSQL, HTTP, WebSocket, GraphQL, Firebase, Meteor
+Messaging	WebRTC, WebSocket, Push API, Server-Sent Events
+I/O	Web Bluetooth, WebUSB, NFC, camera, microphone, proximity sensor, ambient light sensor
+Presentation	DOM manipulation, event listeners, formatting
+User interaction	UI behaviour, form validation
+State management	Application state management, application-specific events
+
+
+## References
+
+https://medium.com/showpad-engineering/how-to-organize-and-name-applications-and-libraries-in-an-nx-monorepo-for-immediate-team-wide-9876510dbe28
+https://www.apollographql.com/blog/apollo-client-client-side-architecture-basics/
+

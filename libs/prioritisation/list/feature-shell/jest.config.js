@@ -1,6 +1,6 @@
 module.exports = {
-  name: 'prioritisation-data-access',
-  preset: '../../../jest.config.js',
+  name: 'prioritisation-list-feature-shell',
+  preset: '../../../../jest.config.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -12,7 +12,7 @@ module.exports = {
       ],
     },
   },
-  coverageDirectory: '../../../coverage/libs/prioritisation/data-access',
+  coverageDirectory: '../../../../coverage/libs/prioritisation/list/feature-shell',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
