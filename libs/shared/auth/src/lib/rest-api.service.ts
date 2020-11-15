@@ -68,6 +68,9 @@ export class RestApiService {
     const expireDate = new Date().getTime() + (1000 * token.expires_in);
     this.setWithExpiry("access_token", token.access_token, expireDate);
     //this.router.navigate(['/']);
+
+
+
   }
 
   setWithExpiry(key, value, ttl) {
