@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { catchError, map } from 'rxjs/operators';
 
 // TODO Great documentation
+
+
 //https://itnext.io/an-oauth-2-0-introduction-for-beginners-6e386b19f7a9
-
 //TODO Consider adding OAUth
-
 //https://offering.solutions/blog/articles/2020/05/18/authentication-and-authorization-with-angular-and-asp.net-core-using-oidc-and-oauth2/
 
 //TODO Oidc with Facade
@@ -16,6 +17,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 //TODO Consider making the RestAPI service a generic one for secure and non-secure calls
 //https://medium.com/netscape/the-better-way-to-write-api-service-in-angular-4-c9178ecf7f48
+
 
 //TODO with Spring 5
 
@@ -35,7 +37,7 @@ export class RestApiService {
   constructor(private http: HttpClient,
               private activatedRoute: ActivatedRoute,
               private router: Router
-              ) {
+  ) {
     this.ENDPOINT = 'http://localhost:8080/api/';
   }
 
@@ -52,20 +54,21 @@ export class RestApiService {
 
 
     const authorisationHeader =
-    new HttpHeaders(
-      {
-       'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
-       'Authorization': 'Basic '+btoa("my-client:my-secret")
-      });
+      new HttpHeaders(
+        {
+          'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
+          'Authorization': 'Basic '+btoa("my-client:my-secret")
+        });
     this.http.post('http://localhost:8080/oauth/token', httpParams, {headers:authorisationHeader})
-    .subscribe(
-      token => this.saveToken(token)
-    )
- }
+      .subscribe(
+        token => this.saveToken(token)
+      )
+  }
 
   saveToken(token){
     const expireDate = new Date().getTime() + (1000 * token.expires_in);
     this.setWithExpiry("access_token", token.access_token, expireDate);
+    //this.router.navigate(['/']);
   }
 
   setWithExpiry(key, value, ttl) {
@@ -131,7 +134,7 @@ export class RestApiService {
      *  However this is is not relevant to making
      */
 
-    //https://www.techiediaries.com/pass-parameters-angular-10-service-inject/
+      //https://www.techiediaries.com/pass-parameters-angular-10-service-inject/
     const params: URLSearchParams =  new URLSearchParams();
     return  this.http.get(this.ENDPOINT+'hello?name=fabrice',{...this.commonOptions()
 

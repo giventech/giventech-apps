@@ -1,1 +1,19 @@
-<p>login works!</p>
+<form [formGroup]="loginFormGroup" >
+  <label>User name:
+    <input formControlName="username" />
+  </label>
+
+  <label>Password:
+    <input formControlName="password" />
+  </label>
+</form>
+
+<!--  Login action from -->
+
+<button (click)="authenticate()">
+
+</button>
+
+
+<gnt-oauth-login [loggedIn]="loggedIn | async">
+</gnt-oauth-login>
