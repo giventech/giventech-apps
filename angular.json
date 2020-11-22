@@ -59,7 +59,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "prioritisation:build"
+            "browserTarget": "prioritisation:build",
+            "proxyConfig": "apps/prioritisation/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -371,6 +372,61 @@
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
+        }
+      }
+    },
+    "prioritisation-service": {
+      "root": "apps/prioritisation-service",
+      "sourceRoot": "apps/prioritisation-service/src",
+      "projectType": "application",
+      "prefix": "prioritisation-service",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/prioritisation-service",
+            "main": "apps/prioritisation-service/src/main.ts",
+            "tsConfig": "apps/prioritisation-service/tsconfig.app.json",
+            "assets": ["apps/prioritisation-service/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/prioritisation-service/src/environments/environment.ts",
+                  "with": "apps/prioritisation-service/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "prioritisation-service:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/prioritisation-service/tsconfig.app.json",
+              "apps/prioritisation-service/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/prioritisation-service/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/prioritisation-service/jest.config.js",
+            "tsConfig": "apps/prioritisation-service/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
         }
       }
     }

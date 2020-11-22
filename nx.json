@@ -55,6 +55,9 @@
     },
     "prioritisation-list-data-access": {
       "tags": []
+    },
+    "prioritisation-service": {
+      "tags": []
     }
   }
 }
