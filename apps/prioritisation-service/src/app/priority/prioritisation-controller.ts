@@ -8,9 +8,9 @@ interface Todo {
 const priorities  : Priority[] = [{WSJF:1231,businessValue:"12",
 criticality:"urgent"}];
 
+// Route for rest API calls 
 export function getPriorities(app: Express) {
   app.get('/api/priorities', (req, resp) => resp.send(priorities));
-  
   app.post('/api/priority', (req, resp) => {
     let todos:Priority [];
     const priority = {
