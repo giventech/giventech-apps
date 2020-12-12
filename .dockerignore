@@ -4,7 +4,7 @@
 .huskyrc
 .prettierrc
 node_modules
-nginx
+docker
 documentation
 tmp
 tools
