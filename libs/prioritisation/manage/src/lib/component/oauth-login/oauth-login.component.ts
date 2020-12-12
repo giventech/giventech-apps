@@ -1,29 +1,19 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'gnt-oauth-login',
-  templateUrl: './oauth-login.component.html',
-  styleUrls: ['./oauth-login.component.scss']
+	selector: 'gnt-oauth-login',
+	templateUrl: './oauth-login.component.html',
+	styleUrls: ['./oauth-login.component.scss'],
 })
 export class OauthLoginComponent implements OnInit {
+	@Input()
+	loggedIn: boolean;
 
-  @Input()
-  loggedIn: boolean;
+	constructor() {}
 
-  constructor(
-  ) {
+	ngOnInit(): void {}
 
-  }
+	// TODO: Add method to map form to model
 
-  ngOnInit(): void {
-
-  }
-
-  // TODO: Add method to map form to model
-
-  retrieveData(): void {
-
-  }
-
-
+	retrieveData(): void {}
 }
