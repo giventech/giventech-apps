@@ -1,0 +1,12 @@
+.git
+.gitignore
+.editorconfig
+.huskyrc
+.prettierrc
+node_modules
+nginx
+documentation
+tmp
+tools
+README.md
+

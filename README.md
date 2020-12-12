@@ -89,10 +89,10 @@ Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
 
 ## Chapter 1: Clean Code: Using Component + Presentational, Module, Libraries, 
 
-Code is organised as below
+The Code is organised as below
 
 - Application folder: prioritisation (app) composes one library PriorityManage
-- List List library: the components to read prioritised tasks by weight
+- List  library: the components to read prioritised tasks by weight
 - Main manage library ( maybe to rename  prioritisation)
         - Route to the relevant application shells (SandBoxes or facade) 
         - calls directly shared libraries ( such as authentication library)
@@ -128,3 +128,10 @@ State management	Application state management, application-specific events
 https://medium.com/showpad-engineering/how-to-organize-and-name-applications-and-libraries-in-an-nx-monorepo-for-immediate-team-wide-9876510dbe28
 https://www.apollographql.com/blog/apollo-client-client-side-architecture-basics/
 
+## Build optimised images size
+
+Excellent article for node based applications:
+https://devopsprodigy.com/blog/6-ways-to-build-docker-images-faster/
+
+1. Reducde context size
+ a) add .dockerignore
